@@ -15,12 +15,13 @@ class StudentEnrollmentsTable
         return $table
             ->columns([
                 TextColumn::make('student.name')
-                    ->label('Student')
+                    ->label('Siswa')
                     ->sortable(),
                 TextColumn::make('course.name')
-                    ->label('Course')
+                    ->label('Kursus')
                     ->sortable(),
                 TextColumn::make('enrolled_at')
+                    ->label('Terdaftar Pada')
                     ->dateTime()
                     ->sortable(),
             ])

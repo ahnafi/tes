@@ -15,12 +15,14 @@ class EvaluationAnswersTable
         return $table
             ->columns([
                 TextColumn::make('evaluation.student.name')
-                    ->label('Student')
+                    ->label('Siswa')
                     ->sortable(),
                 TextColumn::make('question_number')
+                    ->label('Nomor Pertanyaan')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('rating')
+                    ->label('Rating')
                     ->numeric()
                     ->sortable(),
             ])

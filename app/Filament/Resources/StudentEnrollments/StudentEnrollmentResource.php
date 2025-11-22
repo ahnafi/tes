@@ -18,7 +18,9 @@ class StudentEnrollmentResource extends Resource
 {
     protected static ?string $model = StudentEnrollment::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $modelLabel = 'Pendaftaran Siswa';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup;
 
     public static function form(Schema $schema): Schema
     {

@@ -15,16 +15,20 @@ class CoursesTable
         return $table
             ->columns([
                 TextColumn::make('code')
+                    ->label('Kode')
                     ->searchable(),
                 TextColumn::make('name')
+                    ->label('Nama')
                     ->searchable(),
                 TextColumn::make('teacher.name')
-                    ->label('Teacher')
+                    ->label('Guru')
                     ->sortable(),
                 TextColumn::make('start_date')
+                    ->label('Tanggal Mulai')
                     ->date()
                     ->sortable(),
                 TextColumn::make('end_date')
+                    ->label('Tanggal Selesai')
                     ->date()
                     ->sortable(),
             ])

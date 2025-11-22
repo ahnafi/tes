@@ -18,7 +18,9 @@ class EvaluationAnswerResource extends Resource
 {
     protected static ?string $model = EvaluationAnswer::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $modelLabel = 'Jawaban Evaluasi';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeft;
 
     public static function form(Schema $schema): Schema
     {

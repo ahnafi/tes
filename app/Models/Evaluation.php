@@ -27,9 +27,4 @@ class Evaluation extends Model
     {
         return $this->hasMany(EvaluationAnswer::class);
     }
-
-    public function responses()
-    {
-        return $this->hasMany(EvaluationResponse::class);
-    }
 }

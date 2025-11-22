@@ -13,7 +13,7 @@ class EvaluationAnswerForm
         return $schema
             ->components([
                 Select::make('evaluation_id')
-                    ->label('Evaluation')
+                    ->label('Evaluasi')
                     ->options(Evaluation::with('student', 'course')->get()->mapWithKeys(function ($evaluation) {
                         return [$evaluation->id => $evaluation->student->name . ' - ' . $evaluation->course->name];
                     }))
@@ -21,7 +21,7 @@ class EvaluationAnswerForm
                     ->searchable()
                     ->preload(),
                 Select::make('question_number')
-                    ->label('Question Number')
+                    ->label('Nomor Pertanyaan')
                     ->options(array_combine(range(1, 30), range(1, 30)))
                     ->required(),
                 Select::make('rating')

@@ -15,15 +15,16 @@ class EvaluationsTable
         return $table
             ->columns([
                 TextColumn::make('student.name')
-                    ->label('Student')
+                    ->label('Siswa')
                     ->sortable(),
                 TextColumn::make('course.name')
-                    ->label('Course')
+                    ->label('Kursus')
                     ->sortable(),
                 TextColumn::make('teacher.name')
-                    ->label('Teacher')
+                    ->label('Guru')
                     ->sortable(),
                 TextColumn::make('submitted_at')
+                    ->label('Dikirim Pada')
                     ->dateTime()
                     ->sortable(),
             ])

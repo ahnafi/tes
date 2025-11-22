@@ -15,13 +15,15 @@ class CourseForm
         return $schema
             ->components([
                 TextInput::make('code')
+                    ->label('Kode')
                     ->required()
                     ->maxLength(255),
                 TextInput::make('name')
+                    ->label('Nama')
                     ->required()
                     ->maxLength(255),
                 Select::make('teacher_id')
-                    ->label('Teacher')
+                    ->label('Guru')
                     ->options(User::whereHas('roles', function ($query) {
                         $query->where('name', 'teacher');
                     })->pluck('name', 'id'))
@@ -29,8 +31,10 @@ class CourseForm
                     ->searchable()
                     ->preload(),
                 DatePicker::make('start_date')
+                    ->label('Tanggal Mulai')
                     ->required(),
                 DatePicker::make('end_date')
+                    ->label('Tanggal Selesai')
                     ->required(),
             ]);
     }

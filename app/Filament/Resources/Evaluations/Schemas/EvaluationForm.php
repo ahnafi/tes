@@ -18,7 +18,7 @@ class EvaluationForm
         return $schema
             ->components([
                 Select::make('student_id')
-                    ->label('Student')
+                    ->label('Siswa')
                     ->options(User::whereHas('roles', function ($query) {
                         $query->where('name', 'student');
                     })->pluck('name', 'id'))
@@ -26,20 +26,21 @@ class EvaluationForm
                     ->searchable()
                     ->preload(),
                 Select::make('course_id')
-                    ->label('Course')
+                    ->label('Kursus')
                     ->options(Course::pluck('name', 'id'))
                     ->required()
                     ->searchable()
                     ->preload(),
                 Select::make('teacher_id')
-                    ->label('Teacher')
+                    ->label('Guru')
                     ->options(User::whereHas('roles', function ($query) {
                         $query->where('name', 'teacher');
                     })->pluck('name', 'id'))
                     ->required()
                     ->searchable()
                     ->preload(),
-                DateTimePicker::make('submitted_at'),
+                DateTimePicker::make('submitted_at')
+                    ->label('Dikirim Pada'),
             ]);
     }
 }
