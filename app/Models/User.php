@@ -57,6 +57,7 @@ class User extends Authenticatable implements FilamentUser
         $panelId = $panel->getId();
 
         return match (true) {
+            $this->hasRole('student') && $panelId === 'student' => true,
             $this->hasAnyRole(['admin','teacher']) && $panelId === 'admin' => true,
             default => false,
         };
