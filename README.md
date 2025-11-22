@@ -1,59 +1,108 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Teacher Evaluation System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi
 
-## About Laravel
+Sistem Evaluasi Pengajar adalah aplikasi web berbasis Laravel yang dirancang untuk memudahkan siswa memberikan penilaian terhadap guru/dosen mengenai kualitas pengajaran, penyampaian materi, kedisiplinan, dan kepuasan belajar secara keseluruhan. Sistem ini membantu sekolah/kampus dalam mengumpulkan feedback otomatis, menganalisis performa pengajar, dan menghasilkan laporan yang akurat untuk perbaikan kualitas pembelajaran.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini menggantikan metode manual seperti kertas atau Google Form dengan solusi terintegrasi yang mudah diakses, aman, dan dapat dianalisis secara real-time.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Untuk Siswa
 
-## Learning Laravel
+- **Login dan Autentikasi**: Akses aman ke sistem.
+- **Pilih Mata Pelajaran**: Melihat daftar kursus yang dapat dievaluasi.
+- **Isi Evaluasi**: Formulir dengan 25 pertanyaan rating (1-4) dibagi dalam 5 section:
+  - Penilaian Pengajar
+  - Penilaian Materi
+  - Penilaian Proses Pembelajaran
+  - Penilaian Media dan Sumber Belajar
+  - Penilaian Hasil dan Manfaat Pembelajaran
+- **Komentar Tambahan**: Opsional untuk feedback lebih lanjut.
+- **Cek Status**: Melihat apakah evaluasi sudah disubmit.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Untuk Guru/Dosen
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Login dan Autentikasi**: Akses pribadi.
+- **Ringkasan Evaluasi**: Rata-rata nilai per indikator.
+- **Komentar Siswa**: Melihat feedback tekstual.
+- **Grafik Performa**: Visualisasi hasil evaluasi.
 
-## Laravel Sponsors
+### Untuk Admin
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Manajemen Data**: Kelola pengguna (siswa, guru), kursus, dan pendaftaran siswa.
+- **Dashboard**: Grafik dan statistik evaluasi keseluruhan.
+- **Laporan**: Melihat dan export laporan evaluasi ke PDF/Excel.
+- **Export Data**: Export data kursus dan evaluasi beserta siswa terkait.
 
-### Premium Partners
+## Teknologi yang Digunakan
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Framework**: Laravel 12
+- **Admin Panel**: Filament v4
+- **Database**: MySQL
+- **Authentication**: Laravel Sanctum / Filament Auth
+- **Permissions**: Spatie Laravel Permission
+- **Frontend**: Blade Templates, Tailwind CSS (via Filament)
+- **Charts**: Chart.js (via Filament Widgets)
+- **Export**: Laravel Excel / Filament Exporters
 
-## Contributing
+## Instalasi
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clone Repository**:
 
-## Code of Conduct
+   ```bash
+   git clone https://github.com/ahnafi/tes.git
+   cd tes
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. **Install Dependencies**:
 
-## Security Vulnerabilities
+   ```bash
+   composer install
+   npm install
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. **Konfigurasi Environment**:
+   - Copy `.env.example` ke `.env`
+   - Atur database connection di `.env`
 
-## License
+4. **Migrasi dan Seed Database**:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
+
+5. **Generate Key dan Storage Link**:
+
+   ```bash
+   php artisan key:generate
+   php artisan storage:link
+   ```
+
+6. **Jalankan Aplikasi**:
+
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+Akses aplikasi di `http://localhost:8000/admin` untuk panel admin.
+
+## Penggunaan
+
+1. **Login sebagai Admin**: Kelola data pengguna, kursus, dan lihat dashboard.
+2. **Login sebagai Siswa**: Pilih kursus dan isi evaluasi.
+3. **Login sebagai Guru**: Lihat hasil evaluasi pribadi.
+
+## Struktur Database
+
+- **Users**: Data pengguna (admin, student, teacher).
+- **Courses**: Daftar kursus dengan teacher_id.
+- **Student_Enrollments**: Relasi siswa ke kursus.
+- **Evaluations**: Header evaluasi per siswa per kursus.
+- **Evaluation_Answers**: Jawaban rating untuk 25 pertanyaan.
+
+## Kontribusi
+
+Kontribusi sangat diterima! Silakan fork repository ini, buat branch fitur baru, dan submit pull request.
+

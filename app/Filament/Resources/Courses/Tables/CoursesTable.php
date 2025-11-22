@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Courses\Tables;
 
+use App\Filament\Exports\CourseExporter;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\ExportAction;
 use Filament\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -32,6 +34,10 @@ class CoursesTable
                     ->label('Tanggal Selesai')
                     ->date()
                     ->sortable(),
+            ])
+            ->headerActions([
+                ExportAction::make()
+                    ->exporter(CourseExporter::class),
             ])
             ->filters([
                 //
