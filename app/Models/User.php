@@ -60,4 +60,24 @@ class User extends Authenticatable implements FilamentUser
             default => false,
         };
     }
+
+    public function taughtCourses()
+    {
+        return $this->hasMany(Course::class, 'teacher_id');
+    }
+
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class, 'student_id');
+    }
+
+    public function evaluationsAsTeacher()
+    {
+        return $this->hasMany(Evaluation::class, 'teacher_id');
+    }
+
+    public function enrollments()
+    {
+        return $this->hasMany(StudentEnrollment::class, 'student_id');
+    }
 }
