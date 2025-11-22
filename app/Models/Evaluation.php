@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['student_id', 'course_id', 'teacher_id', 'form_id', 'overall_rating', 'overall_comment', 'submitted_at'];
+    protected $fillable = ['student_id', 'course_id', 'teacher_id', 'submitted_at'];
 
     public function student()
     {
@@ -23,9 +23,9 @@ class Evaluation extends Model
         return $this->belongsTo(User::class, 'teacher_id');
     }
 
-    public function form()
+    public function answers()
     {
-        return $this->belongsTo(EvaluationForm::class, 'form_id');
+        return $this->hasMany(EvaluationAnswer::class);
     }
 
     public function responses()

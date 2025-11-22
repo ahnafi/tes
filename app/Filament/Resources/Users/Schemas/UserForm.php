@@ -25,6 +25,7 @@ class UserForm
                     ->required(),
                 Select::make('roles')
                     ->multiple()
+                    ->preload()
                     ->relationship('roles', 'name')
                     ->label('Role')
                     ->required(),

@@ -16,9 +16,6 @@ return new class extends Migration
             $table->foreignId('student_id')->constrained('users');
             $table->foreignId('course_id')->constrained('courses');
             $table->foreignId('teacher_id')->constrained('users');
-            $table->foreignId('form_id')->constrained('evaluation_forms');
-            $table->decimal('overall_rating', 3, 2)->nullable();
-            $table->text('overall_comment')->nullable();
             $table->timestamp('submitted_at')->nullable();
             $table->timestamps();
         });

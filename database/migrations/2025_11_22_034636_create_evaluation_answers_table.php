@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evaluation_forms', function (Blueprint $table) {
+        Schema::create('evaluation_answers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->boolean('is_active')->default(true);
-            $table->date('effective_from');
-            $table->date('effective_to');
+            $table->foreignId('evaluation_id')->constrained('evaluations');
+            $table->integer('question_number');
+            $table->integer('rating');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evaluation_forms');
+        Schema::dropIfExists('evaluation_answers');
     }
 };

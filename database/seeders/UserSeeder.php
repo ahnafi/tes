@@ -17,36 +17,30 @@ class UserSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create roles and assign existing permissions
-        Role::create(['name' => 'admin']);
-        Role::create(['name' => 'teacher']);
-        Role::create(['name' => 'student']);
+        $admin = Role::create(['name' => 'admin']);
+        $teacher = Role::create(['name' => 'teacher']);
+        $student = Role::create(['name' => 'student']);
 
-        $admin = User::create([
+        User::create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => 'password',
             'email_verified_at' => Carbon::now(),
-        ]);
+        ])->assignRole($admin);
 
-        $admin->assignRole('admin');
-
-        $admin = User::create([
+        User::create([
             'name' => 'Teacher',
             'email' => 'teacher@example.com',
             'password' => 'password',
             'email_verified_at' => Carbon::now(),
-        ]);
+        ])->assignRole($teacher);
 
-        $admin->assignRole('teacher');
-
-        $admin = User::create([
+        User::create([
             'name' => 'Student',
             'email' => 'student@example.com',
             'password' => 'password',
             'email_verified_at' => Carbon::now(),
-        ]);
-
-        $admin->assignRole('student');
+        ])->assignRole($student);
 
     }
 }
